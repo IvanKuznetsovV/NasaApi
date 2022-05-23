@@ -15,11 +15,11 @@ import com.ivankuznetsov.nasaapi.presentation.screens.PhotoScreen
 import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ivankuznetsov.nasaapi.presentation.viewmodels.DatesViewModel
-import dagger.hilt.android.internal.lifecycle.HiltViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
+    @ExperimentalComposeUiApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,8 +28,10 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController, startDestination = Screen.Dates.route){
                     composable(Screen.Dates.route){ navBackStackEntry ->
                         val factory = HiltViewModelFactory(LocalContext.current, navBackStackEntry)
-                        //val viewModel: DatesViewModel = viewModel("DatesViewModel", factory)
-                        DatesScreen() }
+                        val viewModel: DatesViewModel = viewModel(key = "DatesViewModel",factory = factory)
+                        DatesScreen(onNavigateToPhotoByDateScreen = navController :: navigate,
+                                    viewModel = viewModel)
+                    }
                     composable(Screen.PhotoByDate.route){ PhotoByDateScreen() }
                     composable(Screen.Photo.route){ PhotoScreen() }
                 }
