@@ -16,7 +16,7 @@ interface NasaApi {
     fun getImageDateAsync(@Path("date") date: String): Deferred<Response<ImageDateResponse>>
 
     @GET("{year}/{month}/{day}/png/{id}.png")
-    fun getImage(@Path("year") year: String,
+    fun getImageAsync(@Path("year") year: String,
                  @Path("month") month: String,
                  @Path("day") day: String,
                  @Path("id") id: String)
