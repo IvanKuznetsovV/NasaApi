@@ -22,11 +22,12 @@ import com.ivankuznetsov.nasaapi.data.model.Date
 @Composable
 fun DatesListCard(date: Date, onClick: () -> Unit){
     Card(
-        shape = MaterialTheme.shapes.large,
+        shape = MaterialTheme.shapes.small,
         modifier = Modifier
             .padding(12.dp, 8.dp)
             .fillMaxWidth()
-            .clickable(onClick = onClick)
+            .clickable(onClick = onClick),
+        elevation = 8.dp
     ) {
         Surface {
             Text(

@@ -19,12 +19,17 @@ import com.ivankuznetsov.nasaapi.presentation.navigation.Screen
 @Composable
 fun DatesList(dates: List<Date>, onNavigateToPhotoByDateScreen: (String) -> Unit){
     Box(modifier = Modifier.background(color = MaterialTheme.colors.surface)) {
-        LazyColumn {
-            items(dates) { message ->
-                DatesListCard(message,onClick = {
-                    val route = Screen.PhotoByDate.route
-                    onNavigateToPhotoByDateScreen(route)
-                })
+        if(dates.isEmpty()){
+            LoadingDatesList(imageHeight = 25.dp)
+        }
+        else {
+            LazyColumn {
+                items(dates) { message ->
+                    DatesListCard(message, onClick = {
+                        val route = Screen.PhotoByDate.route
+                        onNavigateToPhotoByDateScreen(route)
+                    })
+                }
             }
         }
     }

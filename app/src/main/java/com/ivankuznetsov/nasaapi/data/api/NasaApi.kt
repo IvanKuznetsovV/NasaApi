@@ -1,6 +1,7 @@
 package com.ivankuznetsov.nasaapi.data.api
 
 import com.ivankuznetsov.nasaapi.data.model.Date
+import com.ivankuznetsov.nasaapi.data.model.ImageDate
 
 import com.ivankuznetsov.nasaapi.data.model.ImageDateResponse
 import kotlinx.coroutines.Deferred
@@ -13,11 +14,11 @@ interface NasaApi {
     fun getDatesAsync(): Deferred<Response<List<Date>>>
 
     @GET("date/{date}")
-    fun getImageDateAsync(@Path("date") date: String): Deferred<Response<ImageDateResponse>>
+    fun getImageDateAsync(@Path("date") date: String): Deferred<Response<List<ImageDate>>>
 
-    @GET("{year}/{month}/{day}/png/{id}.png")
-    fun getImageAsync(@Path("year") year: String,
-                 @Path("month") month: String,
-                 @Path("day") day: String,
-                 @Path("id") id: String)
+//    @GET("{year}/{month}/{day}/png/{id}.png")
+//    fun getImageAsync(@Path("year") year: String,
+//                 @Path("month") month: String,
+//                 @Path("day") day: String,
+//                 @Path("id") id: String)
 }

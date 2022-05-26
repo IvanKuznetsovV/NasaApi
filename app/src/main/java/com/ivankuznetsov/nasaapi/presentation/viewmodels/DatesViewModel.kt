@@ -1,19 +1,16 @@
 package com.ivankuznetsov.nasaapi.presentation.viewmodels
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.*
 import com.ivankuznetsov.nasaapi.data.NasaRepository
 import com.ivankuznetsov.nasaapi.data.api.NasaApiFactory
 import com.ivankuznetsov.nasaapi.data.model.Date
-import com.ivankuznetsov.nasaapi.presentation.navigation.Screen
-import com.ivankuznetsov.nasaapi.util.TAG
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
 import javax.inject.Inject
-const val STATE_KEY_QUERY = "recipe.state.query.key"
+
 @HiltViewModel
 class DatesViewModel
     @Inject constructor(
