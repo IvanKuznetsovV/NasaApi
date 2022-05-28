@@ -17,8 +17,10 @@ fun DatesScreen(onNavigateToPhotoByDateScreen: (String) -> Unit,
                 )
 {
     val dates = viewModel.dates.value
-    DatesList(dates = dates!!, onNavigateToPhotoByDateScreen)
-
-
+    val dateId = viewModel.dateId
+    DatesList(viewModel = viewModel,
+              dateId = dateId,
+              dates = dates!!,
+              onNavigateToPhotoByDateScreen = onNavigateToPhotoByDateScreen)
 
 }

@@ -56,7 +56,7 @@ fun LoadingDatesList(
         )
 
         LazyColumn {
-            items(14){
+            items(9){
                 ShimmerDatesCardItem(
                     colors = colors,
                     xShimmer = xCardShimmer.value,

@@ -2,11 +2,14 @@ package com.ivankuznetsov.nasaapi.presentation.screens
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import com.ivankuznetsov.nasaapi.presentation.viewmodels.PhotoByDateViewModel
 
-@Preview
+
 @Composable
-fun PhotoByDateScreen(){
-    Text("PHOTO_BY_DATE")
+fun PhotoByDateScreen(onNavigateToPhotoScreen: (String) -> Unit,
+                      viewModel: PhotoByDateViewModel
+){
+    val photoByDate = viewModel.photoByDate.value
+    Text(photoByDate?.size.toString())
 
 }
